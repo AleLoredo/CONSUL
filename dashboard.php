@@ -7,7 +7,7 @@ $search_results = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
-        $query = "SELECT c.id, c.lastname, c.name, c.doctype, c.docnum, c.phone1, c.phone2, c.email, i.insurname 
+        $query = "SELECT c.id, c.lastname, c.name, c.doctype, c.docnum, c.phone1, c.phone2, c.email, c.isactive, i.insurname 
                   FROM contacts c 
                   LEFT JOIN insurance_providers i ON c.insurid = i.id 
                   WHERE 1=1";
@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($results) {
             foreach ($results as $row) {
+                if ($row['isactive'] != 0) {                                    
                 $search_results .= "<div class='patient-card'>
                     <strong>{$row['lastname']}, {$row['name']}</strong><br>
                     <span>{$row['doctype']} {$row['docnum']}</span><br>
@@ -65,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </button>
                     </div>
                 </div>";
+                }
 
             }
         } else {
