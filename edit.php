@@ -102,97 +102,95 @@ $insuranceProviders = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="container mt-4 border p-3">
                 <h4 class="mb-3">Editar Contacto</h4>
                 <form action="edit.php" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $contact['id']; ?>">
+                    <input type="hidden" name="id" value="<?php echo $contact['id'] ?? ''; ?>">
 
+                    <div class="mb-3 row align-items-center">
+                        <div class="col-auto">
+                            <label for="name" class="col-form-label">Nombre</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="name" name="name" 
+                                value="<?php echo htmlspecialchars($contact['name'] ?? ''); ?>" required>
+                        </div>
+                        <div class="col-auto">
+                            <label for="lastname" class="col-form-label">Apellido</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="lastname" name="lastname" 
+                                value="<?php echo htmlspecialchars($contact['lastname'] ?? ''); ?>" required>
+                        </div>
+                    </div>
 
+                    <div class="mb-3 row align-items-center">
+                        <div class="col-auto">
+                            <label for="doctype" class="col-form-label">Tipo</label>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" id="doctype" name="doctype" required>
+                                <option value="DNI" <?php echo ($contact['doctype'] ?? '') == 'DNI' ? 'selected' : ''; ?>>DNI</option>
+                                <option value="LE" <?php echo ($contact['doctype'] ?? '') == 'LE' ? 'selected' : ''; ?>>LE</option>
+                                <option value="PASAPORTE" <?php echo ($contact['doctype'] ?? '') == 'PASAPORTE' ? 'selected' : ''; ?>>PASAPORTE</option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <label for="docnum" class="col-form-label">Documento</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="docnum" name="docnum" 
+                                value="<?php echo htmlspecialchars($contact['docnum'] ?? ''); ?>" required>
+                        </div>
+                    </div>
 
-                <div class="mb-3 row align-items-center">
-                    <div class="col-auto">
-                        <label for="name" class="col-form-label">Nombre</label>
+                    <div class="mb-3 row align-items-center">
+                        <div class="col-auto">
+                            <label for="phone1" class="col-form-label">Teléfono 1</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="phone1" name="phone1" 
+                                value="<?php echo htmlspecialchars($contact['phone1'] ?? ''); ?>" required>
+                        </div>
+                        <div class="col-auto">
+                            <label for="phone2" class="col-form-label">Teléfono 2</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="phone2" name="phone2" 
+                                value="<?php echo htmlspecialchars($contact['phone2'] ?? ''); ?>">
+                        </div>
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" id="name" name="name" 
-                            value="<?php echo htmlspecialchars($contact['name']); ?>" required>
-                    </div>
-                    <div class="col-auto">
-                        <label for="lastname" class="col-form-label">Apellido</label>
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" id="lastname" name="lastname" 
-                            value="<?php echo htmlspecialchars($contact['lastname']); ?>" required>
-                    </div>
-                </div>
 
-
-                <div class="mb-3 row align-items-center">
-                    <div class="col-auto">
-                        <label for="doctype" class="col-form-label">Tipo</label>
+                    <div class="mb-3 row align-items-center">
+                        <div class="col-auto">
+                            <label for="email" class="col-form-label">Correo Electrónico</label>
+                        </div>
+                        <div class="col">
+                            <input type="email" class="form-control" id="email" name="email" 
+                                value="<?php echo htmlspecialchars($contact['email'] ?? ''); ?>" required>
+                        </div>
+                        <div class="col-auto">
+                            <label for="insurid" class="col-form-label">Cobertura</label>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" id="insurid" name="insurid" required>
+                                <option value="" disabled>Seleccione una cobertura</option>
+                                <?php
+                                foreach ($insuranceProviders as $provider) {
+                                    $selected = ($provider['id'] == ($contact['insurid'] ?? '')) ? 'selected' : '';
+                                    echo "<option value='" . $provider['id'] . "' $selected>" . htmlspecialchars($provider['insurname'] ?? '') . "</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col">
-                        <select class="form-select" id="doctype" name="doctype" required>
-                            <option value="DNI" <?php echo ($contact['doctype'] == 'DNI') ? 'selected' : ''; ?>>DNI</option>
-                            <option value="LE" <?php echo ($contact['doctype'] == 'LE') ? 'selected' : ''; ?>>LE</option>
-                            <option value="PASAPORTE" <?php echo ($contact['doctype'] == 'PASAPORTE') ? 'selected' : ''; ?>>PASAPORTE</option>
-                        </select>
-                    </div>
-                    <div class="col-auto">
-                        <label for="docnum" class="col-form-label">Documento</label>
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" id="docnum" name="docnum" 
-                        value="<?php echo htmlspecialchars($contact['docnum'] ?? ''); ?>" required>
-                    </div>
-                </div>
-
-
-                <div class="mb-3 row align-items-center">
-                    <div class="col-auto">
-                        <label for="phone1" class="col-form-label">Teléfono 1</label>
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" id="phone1" name="phone1" 
-                            value="<?php echo htmlspecialchars($contact['phone1']); ?>" required>
-                    </div>
-                    <div class="col-auto">
-                        <label for="phone2" class="col-form-label">Teléfono 2</label>
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" id="phone2" name="phone2" 
-                            
-                            value="<?php echo htmlspecialchars($contact['phone2'] ?? ''); ?>">
-                    </div>
-                </div>
-
-                <div class="mb-3 row align-items-center">
-                    <div class="col-auto">
-                        <label for="email" class="col-form-label">Correo Electrónico</label>
-                    </div>
-                    <div class="col">
-                        <input type="email" class="form-control" id="email" name="email" 
-                            value="<?php echo htmlspecialchars($contact['email']); ?>" required>
-                    </div>
-                    <div class="col-auto">
-                        <label for="insurid" class="col-form-label">Cobertura</label>
-                    </div>
-                    <div class="col">
-                        <select class="form-select" id="insurid" name="insurid" required>
-                            <option value="" disabled>Seleccione una cobertura</option>
-                            <?php
-                            foreach ($insuranceProviders as $provider) {
-                                $selected = ($provider['id'] == $contact['insurid']) ? 'selected' : '';
-                                echo "<option value='" . $provider['id'] . "' $selected>" . htmlspecialchars($provider['insurname']) . "</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-
-
-
                     
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
                     <a href="dashboard.php" class="btn btn-secondary">Cancelar</a>
+                    <a href="contactanul.php?id=<?php echo $contact_id; ?>" class="btn btn-danger">Dar de baja este contacto</a>
                 </form>
+
+
+
+
+
             </div>
 
 
