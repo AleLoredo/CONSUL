@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
     $stmt = $pdo->prepare("
     SELECT 
         b.*, 
-        c.phone1, 
+        c.phone1,
+        c.id AS contact_id, 
         c.name AS contact_name, 
         c.lastname AS contact_lastname,
         i.insurname AS contact_insurname
@@ -147,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                                     endif; ?></td>
                                     <td>
 
-                                    <button class="btn btn-outline-danger" onclick="window.location.href='newcancel.php?bookid=<?php echo $booking['id']; ?>&id=<?php echo $contact_id; ?>'">X</button>
+                                    <button class="btn btn-outline-danger" onclick="window.location.href='newcancel.php?bookid=<?php echo $booking['id']; ?>&id=<?php echo $booking['contact_id']; ?>'">X</button>
                                     <?php
                                     $phone = htmlspecialchars($booking['phone1']);
                                     $name = urlencode($booking['contact_lastname'] . ', ' . $booking['contact_name']);
