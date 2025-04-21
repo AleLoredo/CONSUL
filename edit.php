@@ -140,7 +140,7 @@ $insuranceProviders = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" id="docnum" name="docnum" 
-                            value="<?php echo htmlspecialchars($contact['docnum']); ?>" required>
+                        value="<?php echo htmlspecialchars($contact['docnum'] ?? ''); ?>" required>
                     </div>
                 </div>
 
@@ -158,7 +158,8 @@ $insuranceProviders = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" id="phone2" name="phone2" 
-                            value="<?php echo htmlspecialchars($contact['phone2']); ?>">
+                            
+                            value="<?php echo htmlspecialchars($contact['phone2'] ?? ''); ?>">
                     </div>
                 </div>
 

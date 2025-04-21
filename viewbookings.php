@@ -147,15 +147,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                                     endif; ?></td>
                                     <td>
 
+                                    <button class="btn btn-outline-danger" onclick="window.location.href='newcancel.php?bookid=<?php echo $booking['id']; ?>&id=<?php echo $contact_id; ?>'">X</button>
+                                    <?php
+                                    $phone = htmlspecialchars($booking['phone1']);
+                                    $name = urlencode($booking['contact_lastname'] . ', ' . $booking['contact_name']);
+                                    $date = urlencode(date('d-m-Y', strtotime($booking['date'])));
+                                    $time = urlencode(date('H:i', strtotime($booking['time'])));
+                                    $address = rawurlencode('Marcelo T. Alvear 2323 1° A. Saludos!');
+                                    $text = "Hola%20$name%2C%20este%20es%20un%20recordatorio%20de%20tu%20turno%20el%20dia%20$date%20a%20las%20$time%20en%20$address";
+                                    $whatsappUrl = "https://wa.me/+{$phone}?text={$text}";
+                                    ?>
+
                                         <button class="btn btn-outline-secondary flex-grow-1" 
-                                            onclick="window.open('https://wa.me/+<?php echo htmlspecialchars($booking['phone1']); ?>?text=Hola%20<?php echo urlencode($booking['contact_lastname'] . ', ' . $booking['contact_name']); ?>%2C%20este%20es%20un%20recordatorio%20de%20tu%20turno%20el%20dia%20<?php 
-                                            // echo urlencode($booking['date']); 
-                                            echo $formattedDate = urlencode(date('d-m-Y', strtotime($booking['date'])));
-                                            ?>%20a%20las%20<?php 
-                                            echo urlencode(date('H:i', strtotime($booking['time']))); ?>%20en%20<?php
-                                            echo rawurlencode('Marcelo T. Alvear 2323 1° A. Saludos!'); ?>%20', '_blank')">
-                                            Recordatorio
-                                        </button>
+                                        onclick="window.open('<?php echo $whatsappUrl; ?>', '_blank')">
+                                        Recordatorio
+                                    </button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
