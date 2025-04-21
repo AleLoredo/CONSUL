@@ -1,13 +1,12 @@
 <?php
-// $host = '127.0.0.1'; // or 'localhost'
-// $dbname = 'CONSUL';  // The name of your database
-// $username = 'root';  // Your database username
-// $password = '@aleabc123';      // Your database password
-
 $host = 'localhost'; // or 'localhost'
 $dbname = 'CONSUL2';  // The name of your database
-$username = 'cerudb2user';  // Your database username
-$password = '@cerudbuserpw';      // Your database password
+$username = 'root';  // Your database username
+$password = '@aleabc123';      // Your database password
+
+// datos de la base remota
+// $username = 'cerudb2user';  // Your database username
+// $password = '@cerudbuserpw';      // Your database password
 
 
 try {
