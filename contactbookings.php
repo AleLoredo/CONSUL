@@ -104,9 +104,13 @@ $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                             // echo urlencode($booking['date']);
                                             echo $formattedDate = urlencode(date('d-m-Y', strtotime($booking['date'])));
                                             ?>%20a%20las%20<?php 
-                                            echo urlencode(date('H:i', strtotime($booking['time']))); ?>%20Saludos%21', '_blank')">
+                                            echo urlencode(date('H:i', strtotime($booking['time']))); ?>%20en%20<?php
+                                            echo rawurlencode('Marcelo T. Alvear 2323 1° A. Saludos!'); ?>%20', '_blank')">
                                             Recordatorio
                                         </button>
+
+
+                                       
 
 
                                         

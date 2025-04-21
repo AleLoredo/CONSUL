@@ -17,10 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $query .= " AND c.doctype = ? AND c.docnum = ?";
             array_push($params, $_POST['doctype'], $_POST['docnum']);
         }
-        if (!empty($_POST['name']) && !empty($_POST['lastname'])) {
-            $query .= " AND c.name LIKE ? AND c.lastname LIKE ?";
-            array_push($params, "%" . $_POST['name'] . "%", "%" . $_POST['lastname'] . "%");
+        if (!empty($_POST['lastname'])) {
+            $query .= " AND c.lastname LIKE ?";
+            array_push($params, "%" . $_POST['lastname'] . "%");
         }
+        // busqueda por doble condicions
+        // if (!empty($_POST['name']) && !empty($_POST['lastname'])) {
+        //     $query .= " AND c.name LIKE ? AND c.lastname LIKE ?";
+        //     array_push($params, "%" . $_POST['name'] . "%", "%" . $_POST['lastname'] . "%");
+        // }
         if (!empty($_POST['email'])) {
             $query .= " AND c.email LIKE ?";
             array_push($params, "%" . $_POST['email'] . "%");
@@ -135,7 +140,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <form action="dashboard.php" method="POST">
                         <div class="row d-flex mt-4 gy-3 ">
                             <div class="col d-flex align-items-center">
-                                <input type="text" class="form-control me-2" name="name" placeholder="Nombre" required>                                
+                                <!-- disabled search by name
+                                 <input type="text" class="form-control me-2" name="name" placeholder="Nombre" required>    -->
                                 <input type="text" class="form-control me-2" name="lastname" placeholder="Apellido" required>
                                 <button class="btn btn-search" type="submit">▶</button>
                             </div>

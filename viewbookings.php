@@ -12,9 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
         b.*, 
         c.phone1, 
         c.name AS contact_name, 
-        c.lastname AS contact_lastname
+        c.lastname AS contact_lastname,
+        i.insurname AS contact_insurname
     FROM bookings b
     INNER JOIN contacts c ON b.contact = c.id
+    LEFT JOIN insurance_providers i ON c.insurid = i.id
     WHERE b.date = ? AND b.isactive = 1
     ORDER BY b.time ASC
 ");
@@ -115,6 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                                 <th>PACIENTE</th>
                                 <th>1RA VEZ</th>
                                 <th>TIPO</th>
+                                <th>COBERTURA</th>
                                 <th>OBSERVACIONES</th>
                                 <th>ACCIONES</th>
                             </tr>
@@ -133,6 +136,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                                     <td>
                                         <?php echo ($booking['isoverbook'] == 0) ? '---' : 'Sobreturno'; ?>
                                     </td>
+                                    <td>
+                                        <?php echo$booking['contact_insurname']; ?>
+                                    </td>
                                     <td><?php 
                                     if (!empty($booking['observations'])):
                                         echo htmlspecialchars($booking['observations']);
@@ -143,10 +149,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
 
                                         <button class="btn btn-outline-secondary flex-grow-1" 
                                             onclick="window.open('https://wa.me/+<?php echo htmlspecialchars($booking['phone1']); ?>?text=Hola%20<?php echo urlencode($booking['contact_lastname'] . ', ' . $booking['contact_name']); ?>%2C%20este%20es%20un%20recordatorio%20de%20tu%20turno%20el%20dia%20<?php 
-                                            // echo urlencode($booking['date']);
+                                            // echo urlencode($booking['date']); 
                                             echo $formattedDate = urlencode(date('d-m-Y', strtotime($booking['date'])));
                                             ?>%20a%20las%20<?php 
-                                            echo urlencode(date('H:i', strtotime($booking['time']))); ?>%20Saludos%21', '_blank')">
+                                            echo urlencode(date('H:i', strtotime($booking['time']))); ?>%20en%20<?php
+                                            echo rawurlencode('Marcelo T. Alvear 2323 1° A. Saludos!'); ?>%20', '_blank')">
                                             Recordatorio
                                         </button>
                                     </td>
