@@ -1,0 +1,94 @@
+[13-Mar-2025 20:12:22 UTC] PHP Warning:  Undefined variable $selectedMonth in /home/khul/public_html/consultorios/newcontact.php on line 33
+[13-Mar-2025 20:12:22 UTC] PHP Warning:  Undefined variable $selectedYear in /home/khul/public_html/consultorios/newcontact.php on line 33
+[13-Mar-2025 20:12:22 UTC] PHP Warning:  Undefined variable $today in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 16:29:43 UTC] PHP Warning:  Undefined variable $selectedMonth in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 16:29:43 UTC] PHP Warning:  Undefined variable $selectedYear in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 16:29:43 UTC] PHP Warning:  Undefined variable $today in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:12:55 UTC] PHP Warning:  Undefined array key "doctype" in /home/khul/public_html/consultorios/newcontact.php on line 20
+[14-Mar-2025 17:12:55 UTC] PHP Warning:  Undefined array key "insurid" in /home/khul/public_html/consultorios/newcontact.php on line 24
+[14-Mar-2025 17:12:55 UTC] PHP Warning:  Undefined variable $selectedMonth in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:12:55 UTC] PHP Warning:  Undefined variable $selectedYear in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:12:55 UTC] PHP Warning:  Undefined variable $today in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:12:55 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'insurid' cannot be null in /home/khul/public_html/consultorios/newcontact.php:51
+Stack trace:
+#0 /home/khul/public_html/consultorios/newcontact.php(51): PDOStatement->execute()
+#1 {main}
+  thrown in /home/khul/public_html/consultorios/newcontact.php on line 51
+[14-Mar-2025 17:13:45 UTC] PHP Warning:  Undefined variable $selectedMonth in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:13:45 UTC] PHP Warning:  Undefined variable $selectedYear in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:13:45 UTC] PHP Warning:  Undefined variable $today in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:14:54 UTC] PHP Warning:  Undefined variable $selectedMonth in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:14:54 UTC] PHP Warning:  Undefined variable $selectedYear in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:14:54 UTC] PHP Warning:  Undefined variable $today in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:15:18 UTC] PHP Warning:  Undefined array key "doctype" in /home/khul/public_html/consultorios/newcontact.php on line 20
+[14-Mar-2025 17:15:18 UTC] PHP Warning:  Undefined array key "insurid" in /home/khul/public_html/consultorios/newcontact.php on line 24
+[14-Mar-2025 17:15:18 UTC] PHP Warning:  Undefined variable $selectedMonth in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:15:18 UTC] PHP Warning:  Undefined variable $selectedYear in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:15:18 UTC] PHP Warning:  Undefined variable $today in /home/khul/public_html/consultorios/newcontact.php on line 33
+[14-Mar-2025 17:15:18 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'insurid' cannot be null in /home/khul/public_html/consultorios/newcontact.php:51
+Stack trace:
+#0 /home/khul/public_html/consultorios/newcontact.php(51): PDOStatement->execute()
+#1 {main}
+  thrown in /home/khul/public_html/consultorios/newcontact.php on line 51
+[17-Mar-2025 10:58:39 UTC] PHP Warning:  Undefined variable $selectedMonth in /home/khul/public_html/consultorios/newcontact.php on line 33
+[17-Mar-2025 10:58:39 UTC] PHP Warning:  Undefined variable $selectedYear in /home/khul/public_html/consultorios/newcontact.php on line 33
+[17-Mar-2025 10:58:39 UTC] PHP Warning:  Undefined variable $today in /home/khul/public_html/consultorios/newcontact.php on line 33
+[21-Mar-2025 14:05:59 UTC] PHP Warning:  Undefined variable $selectedMonth in /home/khul/public_html/consultorios/newcontact.php on line 33
+[21-Mar-2025 14:05:59 UTC] PHP Warning:  Undefined variable $selectedYear in /home/khul/public_html/consultorios/newcontact.php on line 33
+[21-Mar-2025 14:05:59 UTC] PHP Warning:  Undefined variable $today in /home/khul/public_html/consultorios/newcontact.php on line 33
+[21-Mar-2025 14:05:59 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`CONSUL`.`contacts`, CONSTRAINT `contacts_ibfk_1` FOREIGN KEY (`insurid`) REFERENCES `insurance_providers` (`id`)) in /home/khul/public_html/consultorios/newcontact.php:51
+Stack trace:
+#0 /home/khul/public_html/consultorios/newcontact.php(51): PDOStatement->execute()
+#1 {main}
+  thrown in /home/khul/public_html/consultorios/newcontact.php on line 51
+[21-Mar-2025 14:08:36 UTC] PHP Warning:  Undefined variable $selectedMonth in /home/khul/public_html/consultorios/newcontact.php on line 33
+[21-Mar-2025 14:08:36 UTC] PHP Warning:  Undefined variable $selectedYear in /home/khul/public_html/consultorios/newcontact.php on line 33
+[21-Mar-2025 14:08:36 UTC] PHP Warning:  Undefined variable $today in /home/khul/public_html/consultorios/newcontact.php on line 33
+[24-Mar-2025 15:42:54 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
+[24-Mar-2025 15:46:47 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
+[24-Mar-2025 15:46:53 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
+[24-Mar-2025 17:08:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
+[24-Mar-2025 17:36:45 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
+[25-Mar-2025 19:16:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
+[26-Mar-2025 13:19:17 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
+[02-Apr-2025 11:46:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
+[11-Apr-2025 22:05:08 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
+[11-Apr-2025 22:05:13 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
+[16-Apr-2025 14:51:01 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
+[16-Apr-2025 14:51:06 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on false in /home/khul/public_html/consultorios/viewbookings.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/khul/public_html/consultorios/viewbookings.php on line 8
